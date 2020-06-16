@@ -1010,10 +1010,10 @@ void ED_LoadFromFile (char *data)
 			ED_Print (ent);
 			ED_Free (ent);
 			continue;
+		} else {
+			pr_global_struct->self = EDICT_TO_PROG(ent);
+			PR_ExecuteProgram (func - pr_functions);
 		}
-
-		pr_global_struct->self = EDICT_TO_PROG(ent);
-		PR_ExecuteProgram (func - pr_functions);
 	}
 
 	Con_DPrintf ("%i entities inhibited\n", inhibit);
