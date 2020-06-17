@@ -163,7 +163,8 @@ void() SUB_Null2 = {};
 #define 	VEC_HULL2_MIN   	'-32 -32 -24'
 #define 	VEC_HULL2_MAX  		'32 32 64'
 
-#define     VEC_VIEW_OFS  '0 0 32'
+#define     VEC_VIEW_OFS  		'0 0 32'
+#define 	VEC_QVIEW_OFS 		'0 0 22'
 
 #ifdef PSP
 #define 	MAX_ZOMB 	  12
@@ -275,6 +276,7 @@ float z_health;
 .float bleedingtime;
 .float time_to_die;
 
+float betamap;
 
 float crandom();
 
