@@ -539,3 +539,5 @@ void(string com) SV_ParseClientCommand;
 .vector		bbmins, bbmaxs;		// Used for zombie hitboxes
 
 .float achievements;
+
+.vector scalefactor;

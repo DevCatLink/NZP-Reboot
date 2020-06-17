@@ -639,6 +639,24 @@ void CL_ParseUpdate (int bits)
     else
 	    ent->rendercolor[2] = 0;
 // Tomaz - QC Alpha Scale Glow End
+
+	// MotoLegacy - QC Model Scale Start
+	if (bits & U_SCALEFACTOR1)
+		ent->scalefactor[0] = MSG_ReadFloat();
+	else
+		ent->scalefactor[0] = 1.0;
+	
+	if (bits & U_SCALEFACTOR2)
+		ent->scalefactor[1] = MSG_ReadFloat();
+	else
+		ent->scalefactor[1] = 1.0;
+	
+	if (bits & U_SCALEFACTOR3)
+		ent->scalefactor[2] = MSG_ReadFloat();
+	else
+		ent->scalefactor[2] = 1.0;
+	// MotoLegacy - QC Model Scale End
+
     if ( bits & U_NOLERP )//there's no data for nolerp, it is the value itself
 		ent->forcelink = true;
 

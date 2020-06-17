@@ -52,6 +52,9 @@ extern  int eval_idealpitch, eval_pitch_speed;
 // Half_life modes. Crow_bar
 extern	int	eval_renderamt, eval_rendermode, eval_rendercolor;
 
+// MotoLegacy - QC Model Scale
+extern 	int eval_scalefactor;
+
 //============================================================================
 
 extern	dprograms_t		*progs;

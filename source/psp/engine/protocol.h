@@ -52,6 +52,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define	U_FRAMETIME	    (1<<22) // another byte to follow
 // Tomaz - QC Alpha Scale Glow Control End
 
+// MotoLegacy - QC Model Scale Begin
+#define U_SCALEFACTOR1 	(1<<23)
+#define U_SCALEFACTOR2 	(1<<24)
+#define U_SCALEFACTOR3 	(1<<25)
+// MotoLegacy - QC Model Scale End
+
 
 #define	SU_VIEWHEIGHT	(1<<0)
 #define	SU_IDEALPITCH	(1<<1)

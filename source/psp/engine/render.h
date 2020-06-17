@@ -59,8 +59,9 @@ typedef struct entity_s
     float		renderamt;
     float		rendermode;
     float		rendercolor[3];
-    //Crow_bar
+	// Tomaz - QC Alpha Scale Glow End
 
+    //Crow_bar
   	struct model_s			*model;			// NULL = no model
   	char					old_model[128];			// NULL = no model
 	struct efrag_s			*efrag;			// linked list of efrags
@@ -118,6 +119,10 @@ typedef struct entity_s
     int                     z_head;
     int                     z_larm;
     int                     z_rarm;
+
+	// MotoLegacy - QC Model Scale Begin
+	float 					scalefactor[3];
+	// MotoLegacy - QC Model Scale End
 
     // fenix@io.com: model transform interpolation
     //  that splits bmodel, or NULL if

@@ -72,6 +72,9 @@ int eval_idealpitch, eval_pitch_speed;
 // Half_life modes. Crow_bar
 int	eval_renderamt, eval_rendermode, eval_rendercolor;
 
+// MotoLegacy - QC Model Scale
+int eval_scalefactor;
+
 ddef_t *ED_FindField (char *name);
 
 int FindFieldOffset (char *field)
@@ -93,6 +96,8 @@ void FindEdictFieldOffsets (void)
 	eval_renderamt   = FindFieldOffset ("renderamt");
 	eval_rendermode  = FindFieldOffset ("rendermode");
     eval_rendercolor = FindFieldOffset ("rendercolor");
+
+	eval_scalefactor = FindFieldOffset ("scalefactor");
 }
 
 /*

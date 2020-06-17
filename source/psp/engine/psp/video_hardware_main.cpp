@@ -2342,7 +2342,7 @@ void R_DrawAliasModel (entity_t *e)
 
 	const ScePspFVector3 scaling =
 	{
-		paliashdr->scale[0], paliashdr->scale[1], paliashdr->scale[2]
+		paliashdr->scale[0]*e->scalefactor[0], paliashdr->scale[1]*e->scalefactor[1], paliashdr->scale[2]*e->scalefactor[2]
 	};
 	sceGumScale(&scaling);
 
@@ -3721,6 +3721,13 @@ void R_DrawViewModel (void)
     currententity->rendercolor[2] = cl_entities[cl.viewentity].rendercolor[2];
     // Tomaz - QC Alpha Scale End
 
+	// MotoLegacy - QC Model Scale Begin
+	// Override viewmodel scalings
+	currententity->scalefactor[0] = 1.0;
+	currententity->scalefactor[1] = 1.0;
+	currententity->scalefactor[2] = 1.0;
+	// MotoLegacy - QC Model Scale End
+
 
 /*
 	j = R_LightPoint (currententity->origin);
@@ -3829,6 +3836,14 @@ void R_DrawView2Model (void)
     currententity->rendercolor[0] = cl_entities[cl.viewentity].rendercolor[0];
     currententity->rendercolor[1] = cl_entities[cl.viewentity].rendercolor[1];
     currententity->rendercolor[2] = cl_entities[cl.viewentity].rendercolor[2];
+	// Tomaz - QC Alpha Scale End
+
+	// MotoLegacy - QC Model Scale Begin
+	// Override view2model scalings
+	currententity->scalefactor[0] = 1.0;
+	currententity->scalefactor[1] = 1.0;
+	currententity->scalefactor[2] = 1.0;
+	// MotoLegacy - QC Model Scale End
 
 	// hack the depth range to prevent view model from poking into walls
 	sceGuDepthRange(0, 19660);

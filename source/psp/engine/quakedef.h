@@ -216,6 +216,7 @@ typedef struct
 	unsigned short rendermode;
 	unsigned short rendercolor;
 	// dr_mabuse1981: HalfLife rendermodes fixed END
+	unsigned short scalefactor;
 } entity_state_t;
 
 #include "wad.h"

@@ -431,6 +431,11 @@ void SV_WriteEntitiesToClient (edict_t	*clent, sizebuf_t *msg, qboolean nomap)
 	float	miss;
 	edict_t	*ent;
 
+	// MotoLegacy - QC Model Scale Begin
+	float 	scalefactor[3];
+	memset(scalefactor, 0, sizeof(scalefactor));
+	// MotoLegacy - QC Model Scale End
+
 	// Tomaz - QC Alpha Scale Glow Begin
 		eval_t  *val;
 		float	renderamt  = 0;
@@ -554,6 +559,23 @@ void SV_WriteEntitiesToClient (edict_t	*clent, sizebuf_t *msg, qboolean nomap)
 	}
 
 	// Tomaz - QC Alpha Scale Glow End
+
+	// MotoLegacy - QC Model Scale Begin
+	if ((val = GETEDICTFIELDVALUE(ent, eval_scalefactor)))
+	{
+		scalefactor[0] = val->vector[0];
+		scalefactor[1] = val->vector[1];
+		scalefactor[2] = val->vector[2];
+
+		if (scalefactor[0] != 0)
+			bits |= U_SCALEFACTOR1;
+		if (scalefactor[1] != 0)
+			bits |= U_SCALEFACTOR2;
+		if (scalefactor[2] != 0)
+			bits |= U_SCALEFACTOR3;
+	}
+	// MotoLegacy - QC Model Scale End
+
 		if (e >= 256)//We have more than 256 entities
 			bits |= U_LONGENTITY;
 
@@ -627,6 +649,17 @@ void SV_WriteEntitiesToClient (edict_t	*clent, sizebuf_t *msg, qboolean nomap)
 		if (bits & U_RENDERCOLOR3)
 			MSG_WriteFloat(msg, rendercolor[2]);
 		// Tomaz - QC Alpha Scale Glow End
+
+		// MotoLegacy - QC Model Scale Start
+		if (bits & U_SCALEFACTOR1)
+			MSG_WriteFloat(msg, scalefactor[0]);
+
+		if (bits & U_SCALEFACTOR2)
+			MSG_WriteFloat(msg, scalefactor[1]);
+
+		if (bits & U_SCALEFACTOR3)
+			MSG_WriteFloat(msg, scalefactor[2]);
+		// MotoLegacy - QC Model Scale End
  	}
 }
 
