@@ -530,13 +530,8 @@ void() PlayerSpawn =
 	self.fixangle = TRUE;
 
 	// player size
-	if (betamap) {
-		setsize(self, [-16, -16, -32], [16, 16, 32]);
-		self.view_ofs = VEC_QVIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
-	} else {
-		setsize(self, [-16, -16, -32], [16, 16, 40]);
-		self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
-	}
+	setsize(self, [-16, -16, -32], [16, 16, 40]);
+	self.view_ofs = VEC_VIEW_OFS; // naievil -- set view_ofs to 32 to maintain half life (64) sizes
 	
 	self.stance = 2;
 	self.new_ofs_z = self.view_ofs_z;

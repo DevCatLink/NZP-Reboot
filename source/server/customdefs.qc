@@ -305,6 +305,8 @@ entity boxLocations[32];
 float boxCount;
 vector boxOrigin;
 
+.float betaitem;
+
 #ifndef PSP
 //powerups
 .float x2_icon;

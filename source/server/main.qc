@@ -1,6 +1,7 @@
 //
 //	Main.qc - mostly functions that will be called from the engine and are expected to exist
 //
+void() beta_convert;
 void() LightStyles_setup;
 void() SUB_Remove = {remove(self);}
 
@@ -90,6 +91,9 @@ void() StartFrame =
 				
 			updateDogRound();
 			InitRounds();
+
+            if (findfloat(world, betaitem, true))
+                beta_convert();
 		}
 	}
 }
@@ -297,7 +301,6 @@ void() worldspawn =
 	G_PERKS = 0;
 	G_PERKPOWER = 0;
 	load_nzd();
-	
 }
 
 void() SpectatorConnect =
